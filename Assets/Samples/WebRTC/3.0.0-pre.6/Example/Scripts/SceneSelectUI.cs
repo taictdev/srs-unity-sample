@@ -52,6 +52,9 @@ namespace Unity.WebRTC.Samples
         [SerializeField] private Button buttonReplaceTrack;
         [SerializeField] private Button buttonMetadata;
         [SerializeField] private Button buttonEncryption;
+        [SerializeField] private Button buttonPlayer;
+        [SerializeField] private Button buttonPublisher;
+        [SerializeField] private Button buttonStreamer;
 
         List<Vector2Int> streamSizeList = new List<Vector2Int>()
         {
@@ -77,7 +80,7 @@ namespace Unity.WebRTC.Samples
                 .Where(codec => !excludeCodecMimeType.Contains(codec.mimeType))
                 .ToList();
             var list = availableCodecs
-                .Select(codec => new Dropdown.OptionData {text = codec.mimeType + " " + codec.sdpFmtpLine})
+                .Select(codec => new Dropdown.OptionData { text = codec.mimeType + " " + codec.sdpFmtpLine })
                 .ToList();
 
             codecSelector.options.AddRange(list);
@@ -131,6 +134,9 @@ namespace Unity.WebRTC.Samples
             buttonReplaceTrack.onClick.AddListener(OnPressedReplaceTrackButton);
             buttonMetadata.onClick.AddListener(OnPressedMetadataButton);
             buttonEncryption.onClick.AddListener(OnPressedEncryption);
+            buttonPlayer.onClick.AddListener(OnPressedPlayer);
+            buttonPublisher.onClick.AddListener(OnPressedPublisher);
+            buttonStreamer.onClick.AddListener(OnPressedStreamer);
 
             // This sample uses Compute Shader, so almost Android devices don't work correctly.
             if (!SystemInfo.supportsComputeShaders)
@@ -268,5 +274,21 @@ namespace Unity.WebRTC.Samples
         {
             SceneManager.LoadScene("Encryption", LoadSceneMode.Single);
         }
+
+        private void OnPressedStreamer()
+        {
+            SceneManager.LoadScene("Streamer", LoadSceneMode.Single);
+        }
+
+        private void OnPressedPublisher()
+        {
+            SceneManager.LoadScene("Publisher", LoadSceneMode.Single);
+        }
+
+        private void OnPressedPlayer()
+        {
+            SceneManager.LoadScene("Player", LoadSceneMode.Single);
+        }
+
     }
 }
