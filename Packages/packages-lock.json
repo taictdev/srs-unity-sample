@@ -136,15 +136,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.webrtc": {
-      "version": "3.0.0-pre.6",
+      "version": "file:com.unity.webrtc-3.0.0-pre.5",
       "depth": 0,
-      "source": "registry",
+      "source": "embedded",
       "dependencies": {
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.editorcoroutines": "1.0.0",
         "com.unity.modules.audio": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
